@@ -77,9 +77,6 @@
 
     <hr>
 
-
-
-
     <h2>Condicional ENCADEADA: <code>if, elseif, else</code></h2>
     <?php
     $idade = 15;
@@ -103,29 +100,22 @@
     <h3> Usando os comandos <code>switch/case/default/break</code></h3>
     <?php
 
-    /* Protótipo de chatbot
-opções: 1 (informações), 2 (reclamação), 3 (elogio), x (inválida) */
 
-    $opcao = 1; // entrada simulada
+    $opcao = 1; 
 
     switch ($opcao) {
-        case 1:
-            echo "<p> Legal, o que quer saber?</p>";
+        case 1: $texto =  "Legal, o que quer saber?";
             break;
-        case 2:
-            echo "<p> Que  pena, o que houve?</p>";
+        case 2: $texto = "Que pena, o que houve?";
             break;
-        case 3:
-            echo "<p> Que bacana, pode falar!</p>";
+        case 3: $texto =  "Que bacana, pode falar!";
             break;
-        default:
-            echo "<p> Não entedi... vou chamar alguém</p>";
+        default: $texto = "Não entedi... vou chamar alguém";
             break;
     }
     ?>
 
-
-
+<p><?= $texto ?></p>
 
 
 </body>
