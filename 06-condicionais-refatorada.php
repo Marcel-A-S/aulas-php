@@ -21,55 +21,47 @@
 
 <body>
 
-    <h1>Tabalhando com estruturas condicionais</h1>
+    <h1> (Refatorada) Tabalhando com estruturas condicionais</h1>
     <hr>
 
-    <!-- Lembrete: ao usar condicionais, muitas vezes também usaremos operadores relacionais:
- <, <=, >, >=, ==, !=. ===, !== -->
-
+    
 
     <h2> Condicional SIMPLES: <code>if</code></h2>
     <?php
-    $numero = 50;
 
-    // Estrutura tradicional ( comando, parênteses, chaves)
+      $numero = 50;
+      if ($numero > 10) {
+        ?>
 
-    if ($numero > 10) {
-        echo "<p>$numero é maior que 10.</p>";
+          <p> <?=$numero?> é maior que 10.</p>
+    <?php 
     }
+     ?>
 
-    // Estrutura abreviada (sem chaves)
-    if ($numero > 10) echo "<p>$numero é maior que 10.</p>";
-
-    // Estrutura alternativa (sem chaves, com : e endif )
-    if ($numero > 10):
-        echo "<p>$numero é maior que 10.</p>";
-    endif;
-    ?>
     <hr>
 
-    <h2>Condicional COMPOSTA: <code>if/else</code< /h2>
+    <h2>Condicional COMPOSTA: <code>if/else</code></h2>
             <?php
             $produto = "Ultrabook";
             $qtdEmEstoque = 0; // o que temos a disposição
             $qtdCritica = 20; // mínimo necessário no estoque
             ?>
 
-            <h3><?= $produto ?> ?></h3>
-            <p><b>Quantidade em estoque: </b><?= $qtdEmEstoque ?> ?></p>
+            <h3><?= $produto ?> </h3>
+            <p><b>Quantidade em estoque: </b><?= $qtdEmEstoque ?> </p>
 
             <?php
 
             if ($qtdEmEstoque < $qtdCritica) {
                 echo "<p class=\"comprar\">É necessario comprar/repor</p>";
             } else {
-                echo "<p class=\"normal\"   >Estoque normal.</P>";
+                echo "<p class=\"normal\">Estoque normal.</P>";
             }
             // condicional ANINHADA
             if ($qtdEmEstoque === 0) {
-                echo "<p<<amrk class=\"comprar\">URGENTE!</🚨mark></p>";
+                echo "<p><mark class=\"comprar\">URGENTE!</mark></p>";
             } else {
-                echo "<p class=\">Estoque normal.</p>";
+                echo "<p class=\"normal\">Estoque normal.</p>";
             }
 
             //if/else versão abreviada (shorthand if) ?:
