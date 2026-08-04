@@ -24,96 +24,110 @@
     <h1> (Refatorada) Tabalhando com estruturas condicionais</h1>
     <hr>
 
-    
+
 
     <h2> Condicional SIMPLES: <code>if</code></h2>
     <?php
 
-      $numero = 50;
-      if ($numero > 10) {
-        ?>
+    $numero = 50;
+    if ($numero > 10) {
+    ?>
 
-          <p> <?=$numero?> é maior que 10.</p>
-    <?php 
+        <p> <?= $numero ?> é maior que 10.</p>
+    <?php
     }
-     ?>
+    ?>
 
     <hr>
 
     <h2>Condicional COMPOSTA: <code>if/else</code></h2>
-            <?php
-            $produto = "Ultrabook";
-            $qtdEmEstoque = 0; // o que temos a disposição
-            $qtdCritica = 20; // mínimo necessário no estoque
-            ?>
 
-            <h3><?= $produto ?> </h3>
-            <p><b>Quantidade em estoque: </b><?= $qtdEmEstoque ?> </p>
+    <?php
+    $produto = "Ultrabook";
+    $qtdEmEstoque = 0; // o que temos a disposição
+    $qtdCritica = 20; // mínimo necessário no estoque
+    ?>
 
-            <?php
+    <h3><?= $produto ?> </h3>
+    <p><b>Quantidade em estoque: </b><?= $qtdEmEstoque ?> </p>
 
-            if ($qtdEmEstoque < $qtdCritica) {
-                echo "<p class=\"comprar\">É necessario comprar/repor</p>";
-            } else {
-                echo "<p class=\"normal\">Estoque normal.</P>";
-            }
-            // condicional ANINHADA
-            if ($qtdEmEstoque === 0) {
-                echo "<p><mark class=\"comprar\">URGENTE!</mark></p>";
-            } else {
-                echo "<p class=\"normal\">Estoque normal.</p>";
-            }
+    <?php
+    if ($qtdEmEstoque < $qtdCritica) {
+    ?>
 
-            //if/else versão abreviada (shorthand if) ?:
-                $excessoDeEstoque = $qtdEmEstoque >100 ? "sim" : "não";
-                echo $excessoDeEstoque;
+        <p class="comprar">É necessario comprar/repor</p>
 
-                echo "<br>";
-                echo $excessoDeEstoque > 100 ? "sim" : "não";
-            ?>
+        <?php
 
-            <hr>
+        if ($qtdEmEstoque === 0) {
 
+        ?>
+            <p><mark class="comprar">URGENTE!</mark></p>
 
-            <h2>Condicional ENCADEADA: <code>if, elseif, else</code></h2>
-            <?php 
-            $idade = 15;
-            $situacao = "";  // opcional ( nem é obrogatório declarar previamente)
+        <?php
+        }
+    } else {
 
-            if($idade <= 12){
-                $situacao = "criança";
-            } elseif ($idade <= 17){
-                $situacao = "adolecente";
-            } elseif ($idade <= 59){
-                $sutuacao = "adulto";
-            } else {
-                $situacao = "idoso";
-            }
-            
-            ?>
+        ?>
+
+        <p class="normal">Estoque normal.</p>
+    <?php
+    }
+    ?>
+
+    <hr>
 
 
- <p> O usuário tem <?=  $idade?> anos e é <?= $situacao ?>. ?></p>
 
-<h3> Usando os comandos <code>switch/case/default/break</code></h3>
-<?php 
 
-/* Protótipo de chatbot
+    <h2>Condicional ENCADEADA: <code>if, elseif, else</code></h2>
+    <?php
+    $idade = 15;
+    $situacao = "";  // opcional ( nem é obrogatório declarar previamente)
+
+    if ($idade <= 12) {
+        $situacao = "criança";
+    } elseif ($idade <= 17) {
+        $situacao = "adolecente";
+    } elseif ($idade <= 59) {
+        $sutuacao = "adulto";
+    } else {
+        $situacao = "idoso";
+    }
+
+    ?>
+
+
+    <p> O usuário tem <?= $idade ?> anos e é <?= $situacao ?>.</p>
+
+    <h3> Usando os comandos <code>switch/case/default/break</code></h3>
+    <?php
+
+    /* Protótipo de chatbot
 opções: 1 (informações), 2 (reclamação), 3 (elogio), x (inválida) */
 
-$opcao = 1; // entrada simulada
+    $opcao = 1; // entrada simulada
 
-switch ($opcao) {
-    case 1: echo "<p> Legal, o que quer saber?</p>"; break;
-    case 2: echo "<p> Que  pena, o que houve?</p>"; break;
-    case 3: echo "<p> Que bacana, pode falar!</p>"; break;
-    default: echo "<p> Não entedi... vou chamar alguém</p>"; break;
-}   
-?>
+    switch ($opcao) {
+        case 1:
+            echo "<p> Legal, o que quer saber?</p>";
+            break;
+        case 2:
+            echo "<p> Que  pena, o que houve?</p>";
+            break;
+        case 3:
+            echo "<p> Que bacana, pode falar!</p>";
+            break;
+        default:
+            echo "<p> Não entedi... vou chamar alguém</p>";
+            break;
+    }
+    ?>
 
 
 
 
 
 </body>
+
 </html>
