@@ -73,6 +73,27 @@
             }
             ?>
 
+            <hr>
+
+
+            <h2>Condicional ENCADEADA: <code>if, elseif, else</code></h2>
+            <?php 
+            $idade = 15;
+            $situacao = "";  // opcional ( nem é obrogatório declarar previamente)
+
+            if($idade <= 12){
+                $situacao = "criança";
+            } elseif ($idade <= 17){
+                $situacao = "adolecente";
+            } elseif ($idade <= 59){
+                $sutuacao = "adulto";
+            } else {
+                $situacao = "idoso";
+            }
+            
+            ?>
+
+
 
 </body>
 
