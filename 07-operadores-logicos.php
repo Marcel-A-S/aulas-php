@@ -68,6 +68,24 @@ if($clienteVIP || $temCupom):
         endif;
         ?>
 
+<hr>
+
+
+<h2> ! (NÃO/NEGAÇÃO/NOT)</h2>
+<p>Inverte a lógica, ou seja, <b>verdadeiro/true</b> vira<b> falso/false</b></p>
+
+<?php 
+
+/* Se o usuário NÃO ESTIVER logado, mostre o link de login.
+Caso contrário, exibir uma saudação.*/
+
+$usuarioLogado = true;
+
+if(!$usuarioLogado): // Se usuario NÃO está logado (se usuario logado e FAlSE)
+?>
+
+
+
 
 
 
