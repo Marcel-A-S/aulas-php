@@ -79,17 +79,18 @@ if($clienteVIP || $temCupom):
 /* Se o usuário NÃO ESTIVER logado, mostre o link de login.
 Caso contrário, exibir uma saudação.*/
 
-$usuarioLogado = true;
+$usuarioLogado = false;
 
 if(!$usuarioLogado): // Se usuario NÃO está logado (se usuario logado e FAlSE)
 ?>
-
-
-
-
-
-
-
+<p><a href="">Login (entre com seus dados)</a></p>
+<?php
+     else:
+     ?>
+<p>Bem-vindo(a) ao sistema</p>
+<?php
+     endif;
+     ?>  
 
 
 </body>
