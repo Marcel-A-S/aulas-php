@@ -16,7 +16,7 @@
 
     <?php
 
-    $idade = 70;
+    $idade = 9;
 
     if ($idade < 12) :
         $tipoPessoa = "infantil";
@@ -37,7 +37,9 @@
     <h2> Ingressos para o Show</h2>
 
     <p> <?=  $tipoPessoa ?> é <?=  $valorDoIngresso ?></p>
+    <p>Preço: R$ <?=  number_format($valorDoIngresso, 2, ",",".")  ?></p>
     
+
 
 
 
