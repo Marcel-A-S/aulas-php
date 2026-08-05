@@ -18,7 +18,7 @@
 <?php 
 
 $i = 1;
-while($i <= 5){
+while($i <= 5): // ou {
 
 ?>
   
@@ -26,7 +26,7 @@ while($i <= 5){
 
   <?php
   $i++;
-}
+endwhile; // ou }
 ?>
 
 
