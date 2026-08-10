@@ -72,50 +72,69 @@
 
         ?>
 
-<hr>
+        <hr>
 
 
-<h2>Usando o Loop foreach para arrays</h2>
+        <h2>Usando o Loop foreach para arrays</h2>
 
-<?php 
-$alunos = ["Thiago", "Adela", "Renan", "Perola"];
-foreach($alunos as $aluno):
+        <?php
+        $alunos = ["Thiago", "Adela", "Renan", "Perola"];
+        foreach ($alunos as $aluno):
 
-?>
+        ?>
 
-<p> <?=  $aluno ?> </p>
-<?php
-endforeach;
+            <p> <?= $aluno ?> </p>
+        <?php
+        endforeach;
 
-?>
+        ?>
 
-<hr>
+        <hr>
 
 
-<h2> Usando foreach para array associativo</h2>
-<?php 
-$curso = [
-    "titulo" => "Gastronomia",
-    "car_Horaria" => 200,
-    "descricao" => "Aprender o básico sobre a área"
-];
+        <h2> Usando foreach para array associativo</h2>
+        <?php
+        $curso = [
+            "titulo" => "Gastronomia",
+            "car_Horaria" => 200,
+            "descricao" => "Aprender o básico sobre a área"
+        ];
 
-foreach($curso as $chave => $valor):
-?>
+        // Extraindo chave com valor
 
-<p><b> <?= $chave ?></b>: <? $valor ?></p>
-<?php
-endforeach;
+        foreach ($curso as $chave => $valor):
+        ?>
 
-// Extraindo somente o valor
+            <p><b> <?= $chave ?></b>: <? $valor ?></p>
+        <?php
+        endforeach;
 
-foreach($curso as $valor):
-    ?>
+        // Extraindo somente o valor
 
-    <p><i><?= $valor ?></i></p>
-    <?php 
-    endforeach;
-    ?>
+        foreach ($curso as $valor):
+        ?>
+
+            <p><i><?= $valor ?></i></p>
+        <?php
+        endforeach;
+        ?>
+
+        <hr>
+
+        <h2>Usando foreach em uma matriz</h2>
+
+        <?php
+        foreach ($planoDeEstudos as $categoria): // cada linha (categoria)
+            foreach ($categoria as $assunto): // cada coluna (assunto/ curso)
+        ?>
+
+                <p><?= $assunto ?></p>
+        <?php
+            endforeach;
+        endforeach;
+
+        ?>
+
 
 
 
