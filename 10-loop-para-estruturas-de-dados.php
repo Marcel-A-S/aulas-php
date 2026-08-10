@@ -70,14 +70,24 @@
             endfor; // fim do acesso a cada coluna
         endfor; // fim do acesso a cada linha
 
-
-
         ?>
 
+<hr>
 
 
+<h2>Usando o Loop foreach para arrays</h2>
 
+<?php 
+$alunos = ["Thiago", "Adela", "Renan", "Perola"];
+foreach($alunos as $aluno):
 
+?>
+
+<p> <?=  $aluno ?> </p>
+<?php
+endforeach;
+
+?>
 
     </div>
 
