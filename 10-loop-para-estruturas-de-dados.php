@@ -135,7 +135,33 @@
 
         ?>
 
+<hr>
 
+<h2> Usando foreach em uma matriz associativa</h2>
+
+<?php 
+$clientes = [
+    [
+        "nome" => "Juliene",
+        "email" => "ju@senac.br"
+    ],
+    [
+
+    "nome" => "Luiz",
+    "email" => "luiz@senac.br"
+    ]
+];
+
+foreach($clientes as $cliente):
+?>
+
+<p> <b>Nome:</b> <span class="bg-primary-subtle"> <?= $cliente["nome"] ?> </span>"</p>
+
+<p> <b>email:</b> <span class="bg-dark-subtle p-1"> <?= $cliente["email"] ?> </span>"</p>
+<?php 
+
+endforeach;
+?>
 
 
     </div>
