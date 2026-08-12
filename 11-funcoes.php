@@ -73,6 +73,17 @@ $resultadoProdutos = somar($precoProdutoA, $precoProdutoB);
 
         <hr>
 
+        <h2>Função com parâmetros opcionais</h2>
+
+        <?php 
+        function exibirMensagem($mensagem, $pessoa = "visitante"){
+            return "Olá, $mensagem $pessoa";
+        }
+        ?>
+
+
+<p>Saudação 1: <?= exibirMensagem("boa tarde", "Samuel") ?></p>
+<p>Saudação 2: <?= exibirMensagem("bom dia") ?></p>
 
 
 
