@@ -15,9 +15,32 @@
 
     <h1>Variáveis para representar notas de um aluno. </h1>
 
-    nota1;
-    nota2;
-    nota3;
+   <?php 
+   nota1 = 6;
+   nota2 = 4;
+   nota3 = 8;
+
+
+   function calcularMedia($nota1, $nota2, $nota3) {
+    return ($nota1 + $nota2 + $nota3) / 3;
+   
+}
+
+
+function verificarSituacao($media) {
+    if ($media >= 7) {
+        return "Aprovado";
+    } else {
+        return "Reprovado";
+    }
+}
+   
+   
+   ?> 
+    
+   
+
+
 
 
 
