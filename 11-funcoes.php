@@ -1,73 +1,77 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Funções</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
 
 </head>
+
 <body>
 
-<div class="container">
+    <div class="container">
 
-<h1>Trabalho com funções</h1>
+        <h1>Trabalho com funções</h1>
 
-<hr>
+        <hr>
 
-<h2>Função como precedimento (ou sub-rotina)</h2>
-<p>Procedimento não retornam nada.</p>
+        <h2>Função como precedimento (ou sub-rotina)</h2>
+        <p>Procedimento não retornam nada.</p>
 
-<?php 
+        <?php
 
-function exibirDadosDoAutor(){
-    echo "<h4>Fulano de Tal</4>";
-    echo "<p>Aplicação <b>Back-End</b> como exemplo</p>";
-}
+        function exibirDadosDoAutor()
+        {
+            echo "<h4>Fulano de Tal</4>";
+            echo "<p>Aplicação <b>Back-End</b> como exemplo</p>";
+        }
 
-?>
+        ?>
 
-<h3>Chamar/Invocar a função/procedimento</h3>
-<?php exibirDadosDoAutor() ?>
-<div><?php exibirDadosDoAutor() ?></div>
+        <h3>Chamar/Invocar a função/procedimento</h3>
+        <?php exibirDadosDoAutor() ?>
+        <div><?php exibirDadosDoAutor() ?></div>
 
-<hr>
+        <hr>
 
 
-<h2>Função com parâmetros (ou argumentos)</h2>
-<?php 
-function somar( $valor1, $valor2 ){
-    $total = $valor1 + $valor2;
-    return $total;
-}
-?>
+        <h2>Função com parâmetros (ou argumentos)</h2>
+        <?php
+        function somar($valor1, $valor2)
+        {
+            $total = $valor1 + $valor2;
+            return $total;
+        }
+        ?>
 
-<h3>Chamada/retorno da função somar</h3>
-<p> Resultado 1: <?=  somar(10, 20)?>  ?></p>
-<p> Resultado 2: <?=  somar(1234, 250)?>  ?></p>
-<p> Resultado 3: <?=  somar(2, 10.5)?>  ?></p>
+        <h3>Chamada/retorno da função somar</h3>
+        <p> Resultado 1: <?= somar(10, 20) ?> ?></p>
+        <p> Resultado 2: <?= somar(1234, 250) ?> ?></p>
+        <p> Resultado 3: <?= somar(2, 10.5) ?> ?></p>
 
-<?php 
-// Variável de escopo GLOBAL
+        <?php
+        // Variável de escopo GLOBAL
 
-$precoProdutoA = 250;
-$precoProdutoB = 300;
+        $precoProdutoA = 250;
+        $precoProdutoB = 300;
 
-/* Podemos passar valores de outras variáveis para
+        /* Podemos passar valores de outras variáveis para
 os parâmetros dde uma função. */
 
-$resultadoProdutos = somar($precoProdutoA, $precoProdutoB);
-?>
+        $resultadoProdutos = somar($precoProdutoA, $precoProdutoB);
+        ?>
 
-<!-- Utilizando função como parte de condição de um if -->
+        <!-- Utilizando função como parte de condição de um if -->
 
-<?php if(somar(100, 500) > 1200): ?>
-    <p class="text-success">Meta atingida!</p>
-    <?php else: ?>
+        <?php if (somar(100, 500) > 1200): ?>
+            <p class="text-success">Meta atingida!</p>
+        <?php else: ?>
 
-        <p class="text-danger">Não foi desta vez!</p>
+            <p class="text-danger">Não foi desta vez!</p>
 
         <?php endif; ?>
 
@@ -75,27 +79,46 @@ $resultadoProdutos = somar($precoProdutoA, $precoProdutoB);
 
         <h2>Função com parâmetros opcionais</h2>
 
-        <?php 
-        function exibirMensagem($mensagem, $pessoa = "visitante"){
+        <?php
+
+
+
+        function exibirMensagem($mensagem, $pessoa = "visitante")
+        {
             return "Olá, $mensagem $pessoa";
         }
         ?>
 
+        <p>Saudação 1: <?= exibirMensagem("boa tarde", "Samuel") ?></p>
+        <p>Saudação 2: <?= exibirMensagem("bom dia") ?></p>
 
-<p>Saudação 1: <?= exibirMensagem("boa tarde", "Samuel") ?></p>
-<p>Saudação 2: <?= exibirMensagem("bom dia") ?></p>
+        <hr>
+
+        <h2>Função com indução de tipos de dados</h2>
+
+        <p>Nesta abordagem, definimos tipos de dados para os parâmetros e para o retorno da função.</p>
+
+<?php 
+function verificarNegativo(int $valor):string{
+if($valor < 0) return "é negativo";
+return "não é negativo";
+
+}
+?>
+
+<p>Número 10: <?= verificarNegativo(10) ?></p>
+<p>Número -10: <?= verificarNegativo(-10) ?></p>
 
 
 
 
 
-
-
-</div>
+    </div>
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-       
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
 </body>
+
 </html>
