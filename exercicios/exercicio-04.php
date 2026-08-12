@@ -24,8 +24,11 @@ $linguagem =[
       [1 => "HTML", "estruturação da página web" ],
       [2 => "CSS",  "Estilo da vida na página web"],
       [3 => "JS", "Back-End aplicação e processamento de dados"],
-      [4 =>"SQL", "Linguagem de Consulta estruturada" ]
+      [4 =>"SQL", "Linguagem de Consulta estruturada" ],
 
+
+      
+   
 ]
 
     
