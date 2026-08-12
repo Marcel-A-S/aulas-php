@@ -70,12 +70,17 @@
 
         ?>
 
-        <table>
+        <table class=" table table-bordered table-striped table-hover">
+
+        <thead class="table-dark">
             <tr>
                 <th> ID</th>
                 <th>Linguagem</th>
                 <th>Descrição</th>
             </tr>
+            </thead>
+
+            <tbody>
 
             <?php foreach ($linguagens as $linguagem): ?>
 
@@ -86,6 +91,8 @@
                 </tr>
 
             <?php endforeach; ?>
+
+            </tbody>
 
         </table>
 
