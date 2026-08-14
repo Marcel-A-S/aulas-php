@@ -45,10 +45,38 @@ $frase = "Esta é uma frase com palavras feias, como burro, idiota, chato demais
 // Procurar por UMA palavra e substituirndo por outra
 $fraseComSubstituicaoDePalavra = str_ireplace("bobo", "cara legal", $frase);
 
+// Procurar por uma LISTA de palavras e substituindo por outra coisa
+$fraseCensurada = str_ireplace(
+["panaca", "burro", "idiota","chato","bobão","bobo","BOBÃO"],
+"🤬😡",
+$frase
+);
+
 ?>
 
 <p><mark>Frase original: <?= $frase ?></mark></p>
 <p>Frase com substituição de palavras: <?= $fraseComSubstituicaoDePalavra ?></p>
+<p>Frase sensurada <?= $fraseCensurada ?></p>
+
+
+<h2>strip_tag()</h2>
+<?php 
+$codigoHTML = "<h3>HTML5 - <a href= 'http://sp.senac.br'>Senac</a> </h3>";
+$textoSemTags = strip_tags($codigoHTML);
+
+?>
+
+<div>
+<?= $codigoHTML ?>
+<?= $textoSemTags ?>
+
+
+
+</div>
+
+
+
+
 
 </div>
 
