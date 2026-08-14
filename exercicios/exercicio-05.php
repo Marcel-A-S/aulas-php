@@ -6,6 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Funções</title>
 
+<style>
+
+body{
+
+background:
+padding: 2px;
+
+
+}
+
+
+</style>
+
+
+
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
 </head>
@@ -15,34 +31,54 @@
 
     <h1>Variáveis para representar notas de um aluno. </h1>
 
-   <?php 
-   nota1 = 6;
-   nota2 = 4;
-   nota3 = 8;
+    <?php
+    $nota1 = 8;
+    $nota2 = 7;
+    $nota3 = 6;
 
 
-   function calcularMedia($nota1, $nota2, $nota3) {
-    return ($nota1 + $nota2 + $nota3) / 3;
-   
-}
-
-
-function verificarSituacao($media) {
-    if ($media >= 7) {
-        return "Aprovado";
-    } else {
-        return "Reprovado";
+    function calcularMedia($nota1, $nota2, $nota3)
+    {
+         $media = ($nota1 + $nota2 + $nota3) / 3;
+        return number_format($media, 1, ',', '.');
     }
+
+
+    function verificarSituacao($media)
+    {
+        if ($media >= 7) {
+            return "Aprovado";
+        } else {
+            return "Reprovado";
+        }
+    }
+
+
+    $media = calcularMedia($nota1, $nota2, $nota3);
+    $situacao = verificarSituacao($media);
+
+
+    ?>
+
+<?php 
+
+if ($media >= 7) {
+
+    $classe = "text-success";
+} else {
+
+    $classe = "text-danger";
 }
-   
-   
-   ?> 
-    
-   
 
+?>
 
+    <p>nota 1: <?= $nota1 ?></p>
+    <p>nota 2: <?= $nota2 ?></p>
+    <p>nota 3: <?= $nota3 ?></p>
 
+    <p>média: <?= ($media) ?></p>
 
+    <h2 class="<?= $classe ?>">Situação do aluno: <?= $situacao ?></h2>
 
 
 
