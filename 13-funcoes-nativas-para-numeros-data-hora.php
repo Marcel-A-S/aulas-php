@@ -71,21 +71,18 @@ $dataHora = date("d/m/y H:i");
 <p>Hora: <?= $hora ?></p>
 <p>Data e hora: <?=  $dataHora ?></p>
 
+<?php 
+$dataFormatoBD = "2020-09-11";
+
+// Usamos o strtotime para converter primeiro a data em um timestamp (data em formato numérico). Em seguida, o date aplica o formato desejado. */
+
+$dataFormatada = date("d/m/y", strtotime($dataFormatoBD) );
+?>
+
+<p>Data (em formato de sistema/banco): <?= $dataFormatoBD ?></p>
+<p>Data (covertida e formatada): <?= $dataFormatada ?></p>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
