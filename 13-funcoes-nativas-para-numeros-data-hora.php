@@ -54,14 +54,22 @@ $numeroComMuitasCasasDecimais = 1458.4567123;
         <?= number_format($numeroComMuitasCasasDecimais, 3) ?>
     </p>
 
+<hr>
 
-    
-</p>
+<h2>Data e Hora</h2>
+<h3>data(), date_default_timezone_set(), strtotime()</h3>
 
+<?php 
+date_default_timezone_set("America/Sao_Paulo");
+$data = date("d/m/y");
+$hora = date("H:i:s");
+$dataHora = date("d/m/y H:i");
 
+?>
 
-
-
+<p>Data: <?= $data ?></p>
+<p>Hora: <?= $hora ?></p>
+<p>Data e hora: <?=  $dataHora ?></p>
 
 
 </div>
