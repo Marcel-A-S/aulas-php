@@ -149,6 +149,11 @@ return $preco - $preco * 0.10;
 }, $catalogo);
 
 ?>
+
+<pre><?php var_dump($catalogoComDesconto) ?></pre>
+
+
+
     </div>
 
 
