@@ -21,7 +21,7 @@
 
         <?php
         $arrayBandas = ["Pink Floyd", "Genesis", "Yes"];
-        $textoBandas = implode("-, $arrayBandas");
+        $textoBandas = implode("-", $arrayBandas);
 
         ?>
 
@@ -123,19 +123,19 @@
         <h2>Array_combine()</h2>
         <p>Cria um novo array a partir de uma lista de valores e uma lista de chaves.</p>
 
-        <?php 
+        <?php
 
         //Lista de chaves
         $games = ["super_Mario", "Sonic", "Final_Fantasy"];
-        
+
         // Lista de valores
         $precos = [99, 50, 129];
 
 
-        $catalogo = array_combine($games, $precos);    
+        $catalogo = array_combine($games, $precos);
         ?>
 
-        <pre><?php  var_dump($catalogo) ?></pre>
+        <pre><?php var_dump($catalogo) ?></pre>
         <hr>
 
 
@@ -143,15 +143,51 @@
 
         <p>Percorre cada elemento de um array, executa uma função (chamada de callback) e gera um novo array com os resultados.</p>
 
-<?php 
-$catalogoComDesconto = array_map(function($preco){
-return $preco - $preco * 0.10;
-}, $catalogo);
+        <?php
+        $catalogoComDesconto = array_map(function ($preco) {
+            return $preco - $preco * 0.10;
+        }, $catalogo);
 
-?>
+        ?>
 
-<pre><?php var_dump($catalogoComDesconto) ?></pre>
+        <pre><?php var_dump($catalogoComDesconto) ?></pre>
 
+        <hr>
+
+        <h2>Array_column()</h2>
+
+        <p>Retorna um novo array com os valores de uma determinada chave associativa</p>
+
+        <?php
+        $servicos = [
+
+            ["codigo" => 3, "tipo" => "Limpeza", "status" => "Concluído"],
+            ["codigo" => 12, "tipo" => "Manutenção", "status" => "Concluído"],
+            ["codigo" => 1, "tipo" => "Reparo", "status" => "Pendente"],
+            ["codigo" => 7, "tipo" => "Consultoria", "status" => "Concluído"],
+            ["codigo" => 4, "tipo" => "Instalação", "status" => "Concluído"]
+        ];
+
+        $tipoServicos = array_column($servicos, "tipo");
+
+        ?>
+
+        <pre><?php var_dump($tipoServicos) ?></pre>
+
+        <hr>
+
+
+        <h2>Array_filter()</h2>
+
+        <p>Retorna valores para um novo array baseado em alguma condição/critério</p>
+
+        <?php
+
+        $servicosConcluidos = array_filter($servico, fn($servico) => $servico["status"] === "concluído");
+
+        ?>
+
+        <pre><?php var_dump($servicosConcluidos) ?></pre>
 
 
     </div>
