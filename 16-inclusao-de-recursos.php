@@ -24,6 +24,17 @@
 <p>Para fazer o curso o aluno deve ser maior idade.</p>
 <p>Como você <?= ALUNO ?> tem 20 anos, você é <?= verificarIdade(20) ?></p>
 
+
+<h2>Exemplo de carregamento de conteúdo parcial/fragmento</h2>
+
+<section>
+
+<h3>Título qualquer</h3>
+<?php include "textos.php"; ?>
+
+</section>
+
+
 </div>
 
 
