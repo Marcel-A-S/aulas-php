@@ -14,12 +14,28 @@
     <h1>Filtros para validação e sanitização</h1>
     <hr>
 
-    <p>Filtros são recursos de análise e limpeza de dados aplicados atrvés de funções especiais, normalmente as funções <code>filter_var()</code> e <code>filter_input()</code>.</p>
+    <p>Filtros são recursos de análise e limpeza de dados aplicados atrvés de funções especiais, normalmente as funções <code>filter_var()</code> e <code>filter_input()</code> etambém com o uso de <b>constantes</b> de validação/senitização.</p>
 
     <h2>Validação</h2>
     <h3>FILTER_VALIDATE_EMAIL</h3>
 
-    
+    <?php 
+    $email = ":email @provedor  .com";
+    $emailValido = filter_var($email, FILTER_VALIDATE_EMAIL);
+
+    ?>
+
+<pre><?php var_dump($emailValido) ?></pre>
+
+
+<?php if($emailValido): ?>
+
+    <p class="text-success">E-mail correto!</p>
+    <?php else: ?>
+        <p class="text-danger">E-mail incorreto!</p>
+        <?php endif; ?>
+        
+
 
 
 
