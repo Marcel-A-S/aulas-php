@@ -49,24 +49,23 @@ $redeSocialValida = filter_var($redeSocial, FILTER_VALIDATE_URL);
     <a href="<?= $redeSocial ?>" class="btn btn-info">Me siga no Linkedin</a>
     <?php endif; ?>
 
+<hr>
 
 
+<h2>Sanitização</h2>
+<h3>FILTER_SANITIZE_EMAIL</h3>
 
+<?php 
+$contato = "/marcelo.grl@yahoo.br,com (>";
+$contatoSanitizado = filter_var($contato, FILTER_SANITIZE_EMAIL);
+
+?>
+
+<p>Contato <b>sem</b> sanitização: <?= $contato ?></p>
+<p>Contato <b>com</b> sanitização: <?= $contatoSanitizado ?></p>
 
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
