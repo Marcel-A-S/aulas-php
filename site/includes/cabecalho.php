@@ -1,3 +1,8 @@
+
+<?php 
+// Definir um caminho de base/referência para os links
+const BASE = "/site/";
+ ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -15,9 +20,9 @@
 
         <nav>
 
-            <a href="index.php"> Home</a>
-            <a href="cursos.php">Cursos</a>
-            <a href="duvidas.php">Dúvidas</a>
+            <a href="<?= BASE ?>index.php"> Home</a>
+            <a href="<?= BASE ?>cursos.php">Cursos</a>
+            <a href="<?= BASE ?>duvidas.php">Dúvidas</a>
 
         </nav>
     </header>

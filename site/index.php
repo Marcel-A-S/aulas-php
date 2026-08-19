@@ -5,3 +5,5 @@
         <p>Esta é uma página do nosso site</p>
 
   <?php require "includes/rodape.php" ?>
+
+  
