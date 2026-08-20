@@ -14,8 +14,12 @@
 
 <div class="container">
 
-<h1>Recebendo e processamento de dados</h1>
+<h1>Recebendo o processamento de dados</h1>
 <hr>
+
+<?php 
+var_dump($_POST);
+?>
 
 </div>
 
