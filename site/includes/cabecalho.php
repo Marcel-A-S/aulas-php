@@ -14,6 +14,8 @@ const BASE = "/site/";
 
 
 
+<link rel="stylesheet" href="<?= BASE ?>css/estilos.css">
+
 
 
 </head>
