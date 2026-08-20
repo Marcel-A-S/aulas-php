@@ -25,8 +25,12 @@
         $email = $_POST["email"];
         $idade = $_POST["idade"];
         $mensagem = $_POST["mensagem"];
-        $interesses = $_POST["interesses"]; // Array
-        $informativos = $_POST["informativos"];
+
+        // Caso nenhum interresse seja selecionado, a variavel guardará um array vazio.
+        $interesses = $_POST["interesses"] ?? [];
+
+// Caso nenhuma opção seja selecionada, o valor "não" fica como padrão
+        $informativos = $_POST["informativos"] ?? "não"
         ?>
 
         <h2>Dados recebidos</h2>
@@ -34,8 +38,15 @@
         <p>E-mail: <?= $email ?></p>
         <p>Idade: <?= $idade ?> anos</p>
         <p>Mensagem: <?= $mensagem ?></p>
+
+
+        <?php if(!empty($interesses)): ?>
         <p>Interesses: <?= implode(", ", $interesses) ?></p>
-        <p>Informativos: <?= $informativos ?></p>
+        <?php endif; ?> 
+
+
+        <p>Informativos:
+             <?= $informativos === 'sim' ? "Sim" : "Não" ?></p>
 
     </div>
 
