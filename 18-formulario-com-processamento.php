@@ -20,7 +20,7 @@
 <?php 
 if($_SERVER["REQUEST_METHOD"] === "POST"):
 $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
-$nome = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
 if(empty($nome) || empty($email)):
     ?>
@@ -36,7 +36,7 @@ endif; // if de validação dos campos obrigátorios
     
     ?>
 
-    <p class="alert alert-success"> Dados enviados com sucesso</p>
+    <p class="alert alert-success"> Dados enviados com sucesso!</p>
 <?php
 else:
 ?>
