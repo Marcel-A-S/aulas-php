@@ -17,6 +17,30 @@
     <h1>Formulário COM processamento PHP</h1>
 <hr>
 
+<?php 
+if($_SERVER["REQUEST_METHOD"] === "POST"):
+$nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
+$nome = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+
+if(empty($nome) || empty($email)):
+    ?>
+
+    <div class="alert alert-danger">
+<h2>OPS!</h2>
+<p>Você precisa preencher todos os campos!</p>
+    </div>
+
+    <?php 
+
+endif; // if de validação dos campos obrigátorios
+    
+    ?>
+
+    <p class="alert alert-success"> Dados enviados com sucesso</p>
+<?php
+else:
+?>
+
 <form action="" method="post">
     <div class="mb-3">
         <label for="nome" class="form-label">Nome:</label>
@@ -30,6 +54,11 @@
 </form>
 
 </div>
+<?php 
+endif;
+
+?>
+
 
 
 
