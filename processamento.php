@@ -43,33 +43,82 @@ links dinâmicos */
 
             $mensagem = filter_input(INPUT_POST, 'mensagem', FILTER_SANITIZE_SPECIAL_CHARS);
 
-            // Caso nenhum interresse seja selecionado, a variavel guardará um array vazio.
-            $interesses = $_POST["interesses"] ?? [];
 
-            // Caso nenhuma opção seja selecionada, o valor "não" fica como padrão
-            $informativos = $_POST["informativos"] ?? "não"
+            $interessesValidos = ["html", "css", "Javascript"];
+
+
+
+            // Filtrando as opções de interesses e tornando obrigatório o uso de array
+            $interesses = filter_input(
+                INPUT_POST,
+                'interesses',
+                FILTER_SANITIZE_FULL_SPECIAL_CHARS,
+                FILTER_REQUIRE_ARRAY
+            ) ?? [];
+
+
+
+            // Se $interesses NÃO É um array
+            if (!is_array($interesses)) {
+                //Garantindo que ao menos vire um arrayvazio
+
+                $interesses = [];
+                // Registrando uma mensagem de erro no array de erros
+                $erros[] = "Seleção inválida de interesses";
+            }
+
+            // Comparar os dois arrays (o do formulário e o válidos) checando se os valores "batem"
+            $interessesValidados = array_intersect($interesses, $interessesValidos);
+
+
+            $opcoesValidas = ["sim", "nao"];
+            $informativos = filter_input(INPUT_POST, 'informativos',FILTER_SANITIZE_SPECIAL_CHARS);
+
+
+            // Verificamos se a escolha do usuário é uma das válidas.
+            //Se sim, usamos ela. Senão, usamos "nao"
+            $informativos = in_array($informativos, $opcoesValidas) ? $informativos : "nao";
+
+
+
+            if (!empty($erros)):
+
         ?>
 
-            <h2>Dados recebidos</h2>
-            <p>Nome: <?= $nome ?></p>
-            <p>E-mail: <?= $email ?></p>
-            <p>Idade: <?= $idade ?> anos</p>
-            <p>Mensagem: <?= $mensagem ?></p>
+                <div class="alert alert-danger">
+                    <h2>Erros encontrados:</h2>
+                    <ul class="mb-3">
+                        <?php foreach ($erros as $erro): ?>
+                            <li> <?= $erro ?></li>
+                        <?php endforeach ?>
+                    </ul>
+
+                    <a href="17-formulario.html" class="btn btn-warning">Voltar para o fomulário</a>
+
+                </div>
+            <?php else: ?>
 
 
-            <?php if (!empty($interesses)): ?>
-                <p>Interesses: <?= implode(", ", $interesses) ?></p>
-            <?php endif; ?>
+                <h2>Dados recebidos</h2>
+                <p>Nome: <?= $nome ?></p>
+                <p>E-mail: <?= $email ?></p>
+                <p>Idade: <?= $idade ?> anos</p>
+                <p>Mensagem: <?= $mensagem ?></p>
 
 
-            <p>Informativos:
-                <?= $informativos === 'sim' ? "Sim" : "Não" ?></p>
+                <?php if (!empty($interessesValidados)): ?>
+                    <p>Interesses: <?= implode(", ", $interessesValidados) ?></p>
+                <?php endif; ?>
 
-        <?php
 
+                <p>Informativos:
+                    <?= $informativos === 'sim' ? "Sim" : "Não" ?></p>
+
+            <?php
+            endif;
         } else {
 
-        ?>
+            ?>
 
             <!-- Acesso inválido (usuário não veio do formulário)-->
 
