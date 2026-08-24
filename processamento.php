@@ -20,33 +20,64 @@
         <hr>
 
         <?php
-        //Capturando os dados de cada campo
-        $nome = $_POST["nome"];
-        $email = $_POST["email"];
-        $idade = $_POST["idade"];
-        $mensagem = $_POST["mensagem"];
+        /* $_POST $_GET 
+São Arrays superblobais que possuem os dados 
+enviados a partir de formulários e/ou
+links dinâmicos */
 
-        // Caso nenhum interresse seja selecionado, a variavel guardará um array vazio.
-        $interesses = $_POST["interesses"] ?? [];
+        // Verificação se houve uma requesição POST
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-// Caso nenhuma opção seja selecionada, o valor "não" fica como padrão
-        $informativos = $_POST["informativos"] ?? "não"
+
+
+            //Capturando os dados de cada campo
+            $nome = $_POST["nome"];
+            $email = $_POST["email"];
+            $idade = $_POST["idade"];
+            $mensagem = $_POST["mensagem"];
+
+            // Caso nenhum interresse seja selecionado, a variavel guardará um array vazio.
+            $interesses = $_POST["interesses"] ?? [];
+
+            // Caso nenhuma opção seja selecionada, o valor "não" fica como padrão
+            $informativos = $_POST["informativos"] ?? "não"
         ?>
 
-        <h2>Dados recebidos</h2>
-        <p>Nome: <?= $nome ?></p>
-        <p>E-mail: <?= $email ?></p>
-        <p>Idade: <?= $idade ?> anos</p>
-        <p>Mensagem: <?= $mensagem ?></p>
+            <h2>Dados recebidos</h2>
+            <p>Nome: <?= $nome ?></p>
+            <p>E-mail: <?= $email ?></p>
+            <p>Idade: <?= $idade ?> anos</p>
+            <p>Mensagem: <?= $mensagem ?></p>
 
 
-        <?php if(!empty($interesses)): ?>
-        <p>Interesses: <?= implode(", ", $interesses) ?></p>
-        <?php endif; ?> 
+            <?php if (!empty($interesses)): ?>
+                <p>Interesses: <?= implode(", ", $interesses) ?></p>
+            <?php endif; ?>
 
 
-        <p>Informativos:
-             <?= $informativos === 'sim' ? "Sim" : "Não" ?></p>
+            <p>Informativos:
+                <?= $informativos === 'sim' ? "Sim" : "Não" ?></p>
+
+        <?php
+
+        } else {
+
+        ?>
+
+            <!-- Acesso inválido (usuário não veio do formulário)-->
+
+            <div class="alert alert-danger">
+                <h2>Acesso inválido!</h2>
+                <p>Você deve usar o formulário para enviar os dados.</p>
+                <hr>
+                <a href="17-formulario.html" class="btn btn-primary">Ir para o formulário</a>
+
+            </div>
+
+        <?php
+        }
+
+        ?>
 
     </div>
 
