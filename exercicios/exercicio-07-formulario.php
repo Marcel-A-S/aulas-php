@@ -16,16 +16,46 @@
 <h1>Formulário para cadastro </h1>
 <hr>
 
+<form action="processamento.php" method="post">
+  <p>
+            <div class="mb-3">
+                <label for="nome">Nome do produto</label>
+                <input type="text" name="nome" id="nome"> </p>
+
+            </div>
+
+           <div class="mb-3">
+            <p>
+                <label
+                 for="fabricante">Fabricante:</label><br>
+                 <select name="fabricante" id="fabricante">
+                  <option value="">Escolha um fabricante</option>
+                  <option value="lg">LG</option>
+                  <option value="panasonic">Panasonic</option>
+                  <option value="sonic">Sonic</option>
+                  <option value="philips">Philips</option>
+                 </select></p>
+</div>
+
+
+                 <p>
+<div>
+<label for="preco">Preço (R$)</label><input type="number">
+
+
+                 </p>
+</div>
+
+       
+    <button type="submit" class="btn btn-primary">Enviar dados</button>          
+
+          
+              
+            
+          
 <?php 
 
-
-
-
 ?>
-
-
-
-
 
 </div>
 
