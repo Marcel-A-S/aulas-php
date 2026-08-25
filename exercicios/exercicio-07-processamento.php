@@ -25,16 +25,41 @@
             $preco = filter_input(INPUT_POST, 'preco', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 
             $quantidade = filter_input(INPUT_POST, 'quantidade', FILTER_SANITIZE_NUMBER_INT);
-            ?>
+
+            if (empty($nome)) $erros[] = "O campo nome é obrigatório";
+            if (empty($preco)) $erros[] = "O preco esta vazio e obrigatorio";
+            if (empty($quantidade)) $erros[] = "A quantidade esta vazia tem que ser preenchida";
+
+            if (!empty($erros)): ?>
+
+                <div class="alert alert-danger">
+                    <h2>Erros encontrados:</h2>
+                    <ul class="mb-3">
+                        <?php foreach ($erros as $erro): ?>
+                            <li> <?= $erro ?></li>
+                        <?php endforeach ?>
+                    </ul>
+
+                    <a href="17-formulario.html" class="btn btn-warning">Voltar para o fomulário</a>
+
+                </div>
+            <?php else: ?>
 
 
+                <h2>Dados do formulário</h2>
+
+                <p>nome do produto <?= $nome ?></p>
+                <p>nome do fabricante <?= $fabricante ?></p>
+                <p>preço do produto<?= $preco ?></p>
+                <p>quantidade do produto <?= $quantidade ?></p>
+
+        <?php
+
+            endif;
+        }
+        ?>
 
 
-
-<?php 
-        
-   }
-?>
 
 
 
