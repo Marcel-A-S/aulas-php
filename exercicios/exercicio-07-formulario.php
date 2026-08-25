@@ -18,7 +18,7 @@
     <h1>Formulário para cadastro </h1>
     <hr>
 
-    <form action="processamento.php" method="post">
+    <form action="exercicio-07-processamento.php" method="post">
       <p>
       <div class="mb-3">
         <label for="nome">Nome do produto</label>
