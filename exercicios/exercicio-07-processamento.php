@@ -45,7 +45,6 @@
                 </div>
             <?php else: ?>
 
-
                 <h2>Dados do formulário</h2>
 
                 <p>nome do produto <?= $nome ?></p>
@@ -59,15 +58,7 @@
         }
         ?>
 
-
-
-
-
-
-
     </div>
-
-
 
 </head>
 
